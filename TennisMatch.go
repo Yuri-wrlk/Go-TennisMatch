@@ -62,6 +62,7 @@ func WonGame(num int) {
 	fmt.Printf("Jogador 2 - Pontos: %d \n", p2.points)
 	fmt.Printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 	fmt.Printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+	time.Sleep(1 * time.Second)
 }
 
 func WonSet(num int) {
@@ -72,6 +73,7 @@ func WonSet(num int) {
 	fmt.Printf("Jogador 2 - Games: %d \n", p2.games)
 	fmt.Printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 	fmt.Printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+	time.Sleep(1500 * time.Millisecond)
 }
 
 func WonMatch(num int) {
@@ -88,6 +90,18 @@ func main() {
 	var mutx = &sync.Mutex{}
 	ch := make(chan bool)
 	dur := 500 * time.Millisecond
+
+	fmt.Printf("\n# Por favor insira o número de pontos necessários para um game\n")
+	fmt.Printf("O padrão é %d pontos no mínimo sendo 2 a mais que seu oponente\n", totalPontos)
+	fmt.Scanf("%d", &totalPontos)
+
+	fmt.Printf("\n# Por favor insira o número de games necessários para um set\n")
+	fmt.Printf("O padrão é %d games no mínimo sendo 2 a mais que seu oponente\n", totalGames)
+	fmt.Scanf("%d", &totalGames)
+
+	fmt.Printf("\n# Por favor insira o número de sets necessários para ganhar o match\n")
+	fmt.Printf("O padrão é %d\n", totalSets)
+	fmt.Scanf("%d", &totalSets)
 
 	// While no one won enough sets to win the match
 	for p1.sets < totalSets && p2.sets < totalSets {
