@@ -165,7 +165,7 @@ func main() {
 			p1.sets++
 			WonSet(p1.number)
 		} else {
-			p1.sets++
+			p2.sets++
 			WonSet(p2.number)
 		}
 		// Resets games
